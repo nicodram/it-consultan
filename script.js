@@ -21,20 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- NAVBAR SCROLL EFFECT ---
-  let lastScroll = 0;
-  window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-    
-    lastScroll = currentScroll;
-  });
-
   // --- THEME TOGGLE ---
   const themeToggle = document.getElementById('theme-toggle');
   const iconMoon = document.querySelector('.icon-moon');
@@ -133,15 +119,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- PARALLAX EFFECT ON SCROLL (Subtle) ---
+  // --- SCROLL EFFECTS (navbar + subtle parallax, single listener) ---
   const heroContent = document.querySelector('.hero-content');
-  
+
   window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+
     if (heroContent) {
-      const scrolled = window.pageYOffset;
-      const rate = scrolled * 0.3;
+      const rate = currentScroll * 0.3;
       heroContent.style.transform = `translateY(${rate}px)`;
-      heroContent.style.opacity = 1 - (scrolled / 800);
+      heroContent.style.opacity = 1 - (currentScroll / 800);
     }
   });
+
+  // --- VISITOR COUNTER ---
+  async function loadVisitorCount() {
+    const countEl = document.getElementById('visitor-count');
+    if (!countEl) return;
+
+    try {
+      // Menggunakan CountAPI (free, reliable untuk static site)
+      const response = await fetch('https://api.countapi.xyz/hit/nicodram-github-io/cv-visits');
+      if (!response.ok) throw new Error('API limit reached');
+
+      const data = await response.json();
+      countEl.textContent = data.value.toLocaleString();
+    } catch (error) {
+      // Fallback jika API error/rate limit
+      countEl.textContent = '500+';
+      console.log('Visitor counter fallback activated');
+    }
+  }
+
+  loadVisitorCount();
 });

@@ -31,6 +31,7 @@
           <li><a href="#skills">Skills</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="articles.html">Artikel</a></li>
           <li><a href="#contact" class="nav-cta">Contact</a></li>
         </ul>
         <button class="menu-toggle" aria-label="Toggle menu">☰</button>
@@ -51,14 +52,14 @@
       <div class="hero-content">
         <div class="hero-badge">
           <span class="pulse-dot"></span>
-          <span>Available for new opportunities</span>
+          <span id="hero-badge-text">Available for new opportunities</span>
         </div>
-        
-        <h1>Where IT Excellence<br>Meets <span class="text-gradient">Innovation</span></h1>
-        <p class="hero-tagline">IT Project Manager & Business Systems Analyst transforming complex business needs into elegant digital solutions.</p>
-        
+
+        <h1 id="hero-title">Where IT Excellence<br>Meets <span class="text-gradient">Innovation</span></h1>
+        <p class="hero-tagline" id="hero-tagline">IT Project Manager & Business Systems Analyst transforming complex business needs into elegant digital solutions.</p>
+
         <!-- Stats with Gradient Numbers -->
-        <div class="hero-stats">
+        <div class="hero-stats" id="hero-stats">
           <div class="stat-item">
             <span class="stat-number text-gradient" data-target="9">9</span>
             <span class="stat-label">Years in IT</span>
@@ -99,7 +100,7 @@
           <h2 class="section-title">Professional Summary</h2>
         </div>
         
-        <div class="summary-grid">
+        <div class="summary-grid" id="about-cards">
           <div class="summary-card glass-panel">
             <div class="card-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -107,7 +108,7 @@
             <h3>9+ Years</h3>
             <p>Strong IT background since 2016, from NOC operations to enterprise project leadership.</p>
           </div>
-          
+
           <div class="summary-card glass-panel">
             <div class="card-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -115,7 +116,7 @@
             <h3>End-to-End PM</h3>
             <p>Managing IT projects from concept to launch with cross-functional team leadership.</p>
           </div>
-          
+
           <div class="summary-card glass-panel">
             <div class="card-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -126,7 +127,7 @@
         </div>
 
         <div class="summary-text-card glass-panel">
-          <p>An IT Project Manager and IT Business & Systems Analyst with 3+ years of dedicated experience and a strong IT background since 2016. Skilled in understanding business needs and translating them into clear system specifications, successfully managing end-to-end IT projects from concept to launch. Leading cross-functional teams and collaborating with Business Process Owners to deliver solutions that align with business objectives and strict security standards. Proficient in IT infrastructure management, vendor negotiations, budgeting, and utilizing Figma to create intuitive, user-friendly UI/UX designs.</p>
+          <p id="about-summary-text">An IT Project Manager and IT Business & Systems Analyst with 3+ years of dedicated experience and a strong IT background since 2016. Skilled in understanding business needs and translating them into clear system specifications, successfully managing end-to-end IT projects from concept to launch. Leading cross-functional teams and collaborating with Business Process Owners to deliver solutions that align with business objectives and strict security standards. Proficient in IT infrastructure management, vendor negotiations, budgeting, and utilizing Figma to create intuitive, user-friendly UI/UX designs.</p>
         </div>
       </div>
     </section>
@@ -139,7 +140,7 @@
           <h2 class="section-title">Core Competencies</h2>
         </div>
 
-        <div class="skills-grid">
+        <div class="skills-grid" id="skills-grid">
           <div class="skill-card glass-panel">
             <div class="skill-header">
               <span class="skill-icon">📊</span>
@@ -208,16 +209,28 @@
         <!-- Tech Stack Tags -->
         <div class="tech-stack">
           <span class="tech-label">Tools & Technologies:</span>
-          <div class="tech-tags">
-            <span class="tech-tag">MS Office 365</span>
-            <span class="tech-tag">Draw.io</span>
-            <span class="tech-tag">Figma</span>
-            <span class="tech-tag">Visual Studio</span>
-            <span class="tech-tag">Windows Server</span>
-            <span class="tech-tag">Mac OS</span>
-            <span class="tech-tag">Mikrotik</span>
-            <span class="tech-tag">Ubiquiti</span>
-            <span class="tech-tag">Dynatrace</span>
+          <div class="tech-marquee">
+            <div class="tech-marquee-track" id="tech-tags">
+              <span class="tech-tag">MS Office 365</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/diagramsdotnet" alt="" loading="lazy" onerror="this.remove()">Draw.io</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/figma" alt="" loading="lazy" onerror="this.remove()">Figma</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" alt="" loading="lazy" onerror="this.remove()">Visual Studio</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="" loading="lazy" onerror="this.remove()">Windows Server</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/apple" alt="" loading="lazy" onerror="this.remove()">Mac OS</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/mikrotik" alt="" loading="lazy" onerror="this.remove()">Mikrotik</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/ubiquiti" alt="" loading="lazy" onerror="this.remove()">Ubiquiti</span>
+              <span class="tech-tag"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/dynatrace" alt="" loading="lazy" onerror="this.remove()">Dynatrace</span>
+              <!-- duplicated for seamless marquee loop -->
+              <span class="tech-tag" aria-hidden="true">MS Office 365</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/diagramsdotnet" alt="" loading="lazy" onerror="this.remove()">Draw.io</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/figma" alt="" loading="lazy" onerror="this.remove()">Figma</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" alt="" loading="lazy" onerror="this.remove()">Visual Studio</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg" alt="" loading="lazy" onerror="this.remove()">Windows Server</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/apple" alt="" loading="lazy" onerror="this.remove()">Mac OS</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/mikrotik" alt="" loading="lazy" onerror="this.remove()">Mikrotik</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/ubiquiti" alt="" loading="lazy" onerror="this.remove()">Ubiquiti</span>
+              <span class="tech-tag" aria-hidden="true"><img class="tech-tag-logo" src="https://cdn.simpleicons.org/dynatrace" alt="" loading="lazy" onerror="this.remove()">Dynatrace</span>
+            </div>
           </div>
         </div>
       </div>
@@ -231,7 +244,7 @@
           <h2 class="section-title">Professional Experience</h2>
         </div>
 
-        <div class="timeline">
+        <div class="timeline" id="experience-timeline">
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-card glass-panel">
@@ -368,15 +381,15 @@
         </div>
 
         <div class="edu-grid">
-          <div class="edu-card glass-panel">
+          <div class="edu-card glass-panel" id="edu-card">
             <div class="edu-icon">🎓</div>
-            <h3>Bachelor of Information Technology</h3>
-            <span class="edu-school">Universitas Pakuan Bogor</span>
-            <span class="edu-year">2013 – 2018</span>
-            <div class="edu-gpa">GPA: 3.13</div>
+            <h3 id="edu-degree">Bachelor of Information Technology</h3>
+            <span class="edu-school" id="edu-school">Universitas Pakuan Bogor</span>
+            <span class="edu-year" id="edu-year">2013 – 2018</span>
+            <div class="edu-gpa" id="edu-gpa">GPA: 3.13</div>
           </div>
 
-          <div class="cert-list">
+          <div class="cert-list" id="cert-list">
             <div class="cert-item glass-panel">
               <span class="cert-year">2024</span>
               <div class="cert-info">
@@ -418,7 +431,7 @@
         <!-- Organizations -->
         <div class="organizations glass-panel">
           <h3>Organizational Involvement</h3>
-          <div class="org-grid">
+          <div class="org-grid" id="org-grid">
             <div class="org-item">
               <span class="org-dot"></span>
               <div>
@@ -454,7 +467,7 @@
           <p class="section-subtitle">Selected projects showcasing expertise in IT management, infrastructure, and system design.</p>
         </div>
 
-        <div class="showcase-grid">
+        <div class="showcase-grid" id="projects-grid">
           <article class="showcase-card glass-panel">
             <div class="showcase-badge">Infrastructure</div>
             <div class="showcase-visual">
@@ -557,9 +570,9 @@
           <div class="contact-left">
             <span class="section-tag">// 06 — Connect</span>
             <h2 class="contact-title">Let's Build Something<br><span class="text-gradient">Extraordinary</span></h2>
-            <p class="contact-subtitle">Open for IT Project Management, Business Analysis, and Digital Transformation opportunities.</p>
-            
-            <div class="contact-links">
+            <p class="contact-subtitle" id="contact-subtitle">Open for IT Project Management, Business Analysis, and Digital Transformation opportunities.</p>
+
+            <div class="contact-links" id="contact-links">
               <a href="mailto:nicodemus.reno@gmail.com" class="contact-link">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
                 <span>nicodemus.reno@gmail.com</span>
@@ -607,12 +620,13 @@
           <a href="#skills">Skills</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="articles.html">Artikel</a>
         </div>
-        <div class="footer-social">
-          <a href="https://linkedin.com/in/nicodemus-reno-anjasmoro" target="_blank" aria-label="LinkedIn">
+        <div class="footer-social" id="footer-social">
+          <a href="https://linkedin.com/in/nicodemus-reno-anjasmoro" target="_blank" aria-label="LinkedIn" id="footer-linkedin-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="mailto:nicodemus.reno@gmail.com" aria-label="Email">
+          <a href="mailto:nicodemus.reno@gmail.com" aria-label="Email" id="footer-email-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
           <a href="https://github.com/nicodram" target="_blank" aria-label="GitHub">
@@ -633,5 +647,8 @@
   <!-- Calendly Script -->
   <script src="https://assets.calendly.com/assets-external/widget.js" type="text/javascript" async></script>
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="supabase-client.js"></script>
+  <script src="render-content.js"></script>
 </body>
 </html>

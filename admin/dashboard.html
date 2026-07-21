@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin Dashboard | NRA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <nav class="navbar scrolled">
+    <div class="nav-container">
+      <a href="../index.html" class="logo">NRA<span class="logo-dot">.</span></a>
+      <div class="nav-controls">
+        <span class="admin-whoami" id="admin-whoami"></span>
+        <button id="logout-btn" class="btn-secondary">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="admin-main">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// Admin</span>
+        <h2 class="section-title">Dashboard</h2>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab-btn active" data-tab="articles">Artikel</button>
+        <button class="admin-tab-btn" data-tab="content">Konten Halaman</button>
+      </div>
+
+      <!-- ARTICLES TAB -->
+      <section id="tab-articles" class="admin-tab-panel active">
+        <div class="admin-toolbar">
+          <button id="new-article-btn" class="btn-primary">+ Tulis Artikel Baru</button>
+        </div>
+
+        <form id="article-form" class="admin-article-form glass-panel" hidden>
+          <input type="hidden" id="article-id">
+          <label for="article-title">Judul</label>
+          <input type="text" id="article-title" required>
+
+          <label for="article-slug">Slug (URL)</label>
+          <input type="text" id="article-slug" required>
+
+          <label for="article-excerpt">Ringkasan Singkat</label>
+          <textarea id="article-excerpt" rows="2"></textarea>
+
+          <label for="article-cover">Cover Image URL (opsional)</label>
+          <input type="text" id="article-cover">
+
+          <label for="article-content">Isi Artikel (Markdown)</label>
+          <textarea id="article-content" rows="14" required></textarea>
+
+          <label class="admin-checkbox-label">
+            <input type="checkbox" id="article-published" checked>
+            Publikasikan
+          </label>
+
+          <div class="admin-form-actions">
+            <button type="submit" class="btn-primary">Simpan</button>
+            <button type="button" id="article-cancel-btn" class="btn-secondary">Batal</button>
+          </div>
+          <p id="article-form-msg" class="admin-msg" hidden></p>
+        </form>
+
+        <table class="admin-table">
+          <thead>
+            <tr><th>Judul</th><th>Slug</th><th>Status</th><th>Diperbarui</th><th></th></tr>
+          </thead>
+          <tbody id="articles-table-body">
+            <tr><td colspan="5">Memuat…</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- PAGE CONTENT TAB -->
+      <section id="tab-content" class="admin-tab-panel" hidden>
+        <div id="page-sections-accordion"></div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="../supabase-client.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
