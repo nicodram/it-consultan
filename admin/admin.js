@@ -216,6 +216,8 @@ const SECTION_SCHEMAS = {
     { key: 'school', label: 'Sekolah', type: 'text' },
     { key: 'year_range', label: 'Tahun', type: 'text' },
     { key: 'gpa', label: 'GPA', type: 'text' },
+    { key: 'document_title', label: 'Judul Dokumen (untuk alt text)', type: 'text' },
+    { key: 'document_url', label: 'URL Dokumen (PDF atau gambar, kosongkan jika belum ada)', type: 'text' },
   ]},
   certifications: { label: 'Sertifikasi', kind: 'list', itemFields: [
     { key: 'year', label: 'Tahun', type: 'text' },

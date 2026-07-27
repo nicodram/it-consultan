@@ -101,7 +101,9 @@ insert into page_sections (section, data) values
   "degree": "Bachelor of Information Technology",
   "school": "Universitas Pakuan Bogor",
   "year_range": "2013 – 2018",
-  "gpa": "3.13"
+  "gpa": "3.13",
+  "document_title": "NIB OSS",
+  "document_url": null
 }'::jsonb)
 on conflict (section) do update set data = excluded.data;
 

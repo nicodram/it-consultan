@@ -131,6 +131,15 @@ function renderEducation(data) {
   });
   const gpaEl = document.getElementById('edu-gpa');
   if (gpaEl && data.gpa) gpaEl.textContent = 'GPA: ' + data.gpa;
+
+  const docWrap = document.getElementById('edu-document');
+  if (docWrap && data.document_url) {
+    const url = data.document_url;
+    const isPdf = /\.pdf($|\?)/i.test(url);
+    docWrap.innerHTML = isPdf
+      ? `<iframe src="${rcEscape(url)}" title="${rcEscape(data.document_title || 'Document')}"></iframe>`
+      : `<img src="${rcEscape(url)}" alt="${rcEscape(data.document_title || 'Document')}">`;
+  }
 }
 
 function renderCertifications(data) {
