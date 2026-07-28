@@ -217,7 +217,7 @@ const SECTION_SCHEMAS = {
     { key: 'year_range', label: 'Tahun', type: 'text' },
     { key: 'gpa', label: 'GPA', type: 'text' },
     { key: 'document_title', label: 'Judul Dokumen (untuk alt text)', type: 'text' },
-    { key: 'document_url', label: 'URL Dokumen (PDF atau gambar, kosongkan jika belum ada)', type: 'text' },
+    { key: 'document_url', label: 'Dokumen (PDF atau gambar)', type: 'file', bucket: 'documents', accept: '.pdf,image/*' },
   ]},
   certifications: { label: 'Sertifikasi', kind: 'list', itemFields: [
     { key: 'year', label: 'Tahun', type: 'text' },
@@ -257,6 +257,50 @@ function buildSimpleField(field, dataObj, markDirty) {
     ta.value = dataObj[field.key] ?? '';
     ta.addEventListener('input', () => { dataObj[field.key] = ta.value; markDirty(); });
     row.appendChild(ta);
+  } else if (field.type === 'file') {
+    const preview = document.createElement('p');
+    preview.className = 'admin-file-preview';
+    const renderPreview = () => {
+      const url = dataObj[field.key];
+      preview.innerHTML = url
+        ? `File saat ini: <a href="${url}" target="_blank" rel="noopener">lihat</a>`
+        : 'Belum ada file.';
+    };
+    renderPreview();
+
+    const input = document.createElement('input');
+    input.type = 'file';
+    if (field.accept) input.accept = field.accept;
+
+    const status = document.createElement('span');
+    status.className = 'admin-file-status';
+
+    input.addEventListener('change', async () => {
+      const file = input.files[0];
+      if (!file) return;
+      status.textContent = 'Mengupload...';
+      const safeName = file.name.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+      const path = `${field.key}-${Date.now()}-${safeName}`;
+
+      const { error: uploadError } = await db.storage
+        .from(field.bucket)
+        .upload(path, file, { upsert: true, contentType: file.type });
+
+      if (uploadError) {
+        status.textContent = 'Gagal upload: ' + uploadError.message;
+        return;
+      }
+
+      const { data: urlData } = db.storage.from(field.bucket).getPublicUrl(path);
+      dataObj[field.key] = urlData.publicUrl;
+      renderPreview();
+      status.textContent = 'Berhasil diupload. Klik "Simpan" untuk menerapkan.';
+      markDirty();
+    });
+
+    row.appendChild(preview);
+    row.appendChild(input);
+    row.appendChild(status);
   } else if (field.type === 'select') {
     const sel = document.createElement('select');
     (field.options || []).forEach(opt => {

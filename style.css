@@ -1236,8 +1236,17 @@ img, svg { display: block; max-width: 100%; }
   }
   
   /* Hero Mobile Fix */
+  .hero {
+    /* Vertically-centered content can be taller than the viewport on
+       mobile (badge + 2-line title + tagline + 3 stats + 2 buttons),
+       which pushed the top of the content (the badge) up behind the
+       fixed navbar. Anchor to the top instead so it flows down. */
+    align-items: flex-start;
+  }
+
   .hero-content {
     padding: 0 1.5rem;
+    padding-top: calc(var(--nav-height) + 2rem);
     padding-bottom: 8rem;
   }
   
@@ -1305,7 +1314,17 @@ img, svg { display: block; max-width: 100%; }
   .showcase-grid {
     grid-template-columns: 1fr;
   }
-  
+
+  .edu-document iframe,
+  .edu-document img {
+    min-height: 320px;
+  }
+
+  .edu-degree-panel {
+    justify-content: center;
+    text-align: center;
+  }
+
   .contact-wrapper {
     grid-template-columns: 1fr;
     padding: 2rem;
@@ -1337,6 +1356,7 @@ img, svg { display: block; max-width: 100%; }
   
   .hero-content {
     padding: 0 1.2rem;
+    padding-top: calc(var(--nav-height) + 2rem);
     padding-bottom: 7rem;
   }
   
@@ -1676,8 +1696,14 @@ a:focus-visible, button:focus-visible {
   margin-bottom: 1.5rem;
 }
 
+.admin-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
 .admin-table {
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
 }
 
@@ -1760,6 +1786,24 @@ a:focus-visible, button:focus-visible {
 
 .admin-msg-error {
   color: #ff6b6b;
+}
+
+.admin-file-preview {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.admin-file-preview a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.admin-file-status {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
 }
 
 .admin-accordion-panel {
