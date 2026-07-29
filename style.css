@@ -1657,6 +1657,23 @@ a:focus-visible, button:focus-visible {
   font-size: 0.85rem;
 }
 
+.admin-success {
+  color: #4ade80;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.admin-auth-link {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.admin-auth-link:hover {
+  color: var(--accent);
+}
+
 .admin-main {
   padding-top: calc(var(--nav-height) + 2rem);
   padding-bottom: 4rem;
