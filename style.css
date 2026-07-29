@@ -1765,7 +1765,8 @@ a:focus-visible, button:focus-visible {
 
 .admin-article-form[hidden],
 .admin-tab-panel[hidden],
-.admin-accordion-body[hidden] {
+.admin-accordion-body[hidden],
+.admin-auth-card[hidden] {
   display: none;
 }
 
