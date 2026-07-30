@@ -18,14 +18,14 @@
   --text-secondary: #a0a0a0;
   --text-muted: #666666;
   
-  --accent: #00f3ff;
-  --accent-dim: rgba(0, 243, 255, 0.1);
-  --accent-glow: rgba(0, 243, 255, 0.3);
+  --accent: #ff6a00;
+  --accent-dim: rgba(255, 106, 0, 0.1);
+  --accent-glow: rgba(255, 106, 0, 0.3);
   
   --border: rgba(255, 255, 255, 0.06);
   --border-hover: rgba(255, 255, 255, 0.12);
   
-  --gradient-text: linear-gradient(135deg, #00f3ff 0%, #7c3aed 100%);
+  --gradient-text: linear-gradient(135deg, #ff8a1e 0%, #ff6a00 50%, #ff4400 100%);
   
   /* Glassmorphism */
   --glass-bg: rgba(255, 255, 255, 0.02);
@@ -35,7 +35,7 @@
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 40px rgba(0, 243, 255, 0.15);
+  --shadow-glow: 0 0 40px rgba(255, 106, 0, 0.15);
   
   /* Spacing */
   --nav-height: 72px;
@@ -59,20 +59,20 @@
   --text-secondary: #555555;
   --text-muted: #888888;
   
-  --accent: #0066ff;
-  --accent-dim: rgba(0, 102, 255, 0.1);
-  --accent-glow: rgba(0, 102, 255, 0.2);
+  --accent: #e85d00;
+  --accent-dim: rgba(232, 93, 0, 0.1);
+  --accent-glow: rgba(232, 93, 0, 0.2);
   
   --border: rgba(0, 0, 0, 0.08);
   --border-hover: rgba(0, 0, 0, 0.15);
   
-  --gradient-text: linear-gradient(135deg, #0066ff 0%, #7c3aed 100%);
+  --gradient-text: linear-gradient(135deg, #f57c00 0%, #e85d00 50%, #d63a00 100%);
   
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(0, 0, 0, 0.08);
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 8px 32px rgba(0, 0, 0, 0.12);
-  --shadow-glow: 0 0 40px rgba(0, 102, 255, 0.1);
+  --shadow-glow: 0 0 40px rgba(232, 93, 0, 0.1);
 }
 
 /* --- 2. RESET & BASE --- */
