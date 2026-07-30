@@ -138,22 +138,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // --- VISITOR COUNTER ---
+  // --- VISITOR COUNTER (via Supabase) ---
   async function loadVisitorCount() {
     const countEl = document.getElementById('visitor-count');
     if (!countEl) return;
 
-    try {
-      // Menggunakan CountAPI (free, reliable untuk static site)
-      const response = await fetch('https://api.countapi.xyz/hit/nicodram-github-io/cv-visits');
-      if (!response.ok) throw new Error('API limit reached');
+    // Pastikan koneksi Supabase (db) udah siap
+    if (typeof db === 'undefined') {
+      countEl.textContent = '—';
+      console.warn('Supabase (db) belum siap, counter dilewati.');
+      return;
+    }
 
-      const data = await response.json();
-      countEl.textContent = data.value.toLocaleString();
+    try {
+      // Panggil fungsi increment_visits() yang kita bikin di database.
+      // Tiap dipanggil: nambah +1, terus balikin angka terbaru.
+      const { data, error } = await db.rpc('increment_visits');
+      if (error) throw error;
+
+      countEl.textContent = Number(data).toLocaleString();
     } catch (error) {
-      // Fallback jika API error/rate limit
-      countEl.textContent = '500+';
-      console.log('Visitor counter fallback activated');
+      // Kalau gagal, tampilkan strip biar ga nampilin angka palsu
+      countEl.textContent = '—';
+      console.error('Visitor counter error:', error);
     }
   }
 
