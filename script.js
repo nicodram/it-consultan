@@ -10,13 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   if (menuToggle) {
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
-      menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+      const isOpen = navLinks.classList.contains('active');
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('active');
         menuToggle.textContent = '☰';
+        menuToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -41,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function setTheme(theme) {
     html.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    if (themeToggle) themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
     
     if (theme === 'dark') {
       iconMoon.style.display = 'block';
@@ -56,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const animateCounter = (el) => {
     const target = parseInt(el.getAttribute('data-target'));
+    const suffix = el.textContent.replace(/^\d+/, '');
     const duration = 2000;
     const start = 0;
     const startTime = performance.now();
@@ -68,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const easeOut = 1 - Math.pow(1 - progress, 3);
       const current = Math.round(start + (target - start) * easeOut);
       
-      el.textContent = current + '+';
+      el.textContent = current + suffix;
       
       if (progress < 1) {
         requestAnimationFrame(update);
